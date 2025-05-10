@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: sans-serif; padding: 10px; width: 150px; }
-    label { display: flex; align-items: center; gap: 10px; }
-    input[type="checkbox"] { transform: scale(1.2); }
-  </style>
-</head>
-<body>
-  <label>
-    <input type="checkbox" id="toggle">
-    Activated
-  </label>
-  <button id="set-redirect">Set window as REDIR</button>
-  <script src="popup.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Window Edge Redirector</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        width: 220px;
+        background: #212121;
+      }
+      h1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #d483ff;
+      }
+      label {
+        display: block;
+        margin: 10px 0;
+        color: #fff;
+      }
+      button {
+        padding: 8px 12px;
+        margin-top: 10px;
+        border: none;
+        background-color: #d483ff;
+        font-weight: bold;
+        color: #212121;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      button:hover {
+        background-color: #b52efc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Window Edge Redirector</h1>
+
+    <label>
+      <input type="checkbox" id="toggle" />
+      Activated
+    </label>
+
+    <button id="set-redirect">Set this window as REDIRECT</button>
+
+    <script src="popup.js"></script>
+  </body>
 </html>
