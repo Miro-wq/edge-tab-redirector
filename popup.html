@@ -16,36 +16,55 @@
         margin-bottom: 20px;
         color: #d483ff;
       }
-      label {
-        display: block;
-        margin: 10px 0;
+      .toggle-switch {
+        display: flex;
+        /* border: 1px solid #ccc; */
+        border-radius: 12px;
+        overflow: hidden;
+        /* width: 150px; */
+        margin: 0 auto 20px auto;
+        cursor: pointer;
+        user-select: none;
+        padding: 4px;
+        background-color: #3d3d3d;
+        gap: 8px;
+      }
+      .toggle-option {
+        flex: 1;
+        padding: 8px 0;
+        /* background-color: #f0f0f0; */
         color: #fff;
+        transition: all 0.3s;
+        border-radius: 9px;
+      }
+      .toggle-option.active {
+        background-color: #212121;
+        color: white;
       }
       button {
         padding: 8px 12px;
-        margin-top: 10px;
         border: none;
-        background-color: #d483ff;
-        font-weight: bold;
-        color: #212121;
-        border-radius: 4px;
+        background-color: #3d3d3d;
+        color: #d483ff;
+        border-radius: 12px;
         cursor: pointer;
         font-size: 14px;
+        transition: all 0.3s;
       }
       button:hover {
-        background-color: #b52efc;
+        background-color: #585858;
       }
     </style>
   </head>
   <body>
     <h1>Window Edge Redirector</h1>
 
-    <label>
-      <input type="checkbox" id="toggle" />
-      Activated
-    </label>
+    <div id="toggle" class="toggle-switch">
+      <div id="toggle-on" class="toggle-option">Activate</div>
+      <div id="toggle-off" class="toggle-option">Deactivate</div>
+    </div>
 
-    <button id="set-redirect">Set this window as REDIRECT</button>
+    <button id="set-redirect">Set this window as redirect destination</button>
 
     <script src="popup.js"></script>
   </body>

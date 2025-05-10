@@ -1,20 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('toggle');
-  const redirectBtn = document.getElementById('set-redirect');
+  const toggleOn = document.getElementById('toggle-on');
+  const toggleOff = document.getElementById('toggle-off');
 
   chrome.storage.sync.get(['enabled'], (data) => {
-    toggle.checked = data.enabled ?? true;
+    if (data.enabled ?? true) {
+      setActive('on');
+    } else {
+      setActive('off');
+    }
   });
 
-  toggle.addEventListener('change', () => {
-    chrome.storage.sync.set({ enabled: toggle.checked });
-  });
+  function setActive(state) {
+    if (state === 'on') {
+      toggleOn.classList.add('active');
+      toggleOff.classList.remove('active');
+      chrome.storage.sync.set({ enabled: true });
+    } else {
+      toggleOff.classList.add('active');
+      toggleOn.classList.remove('active');
+      chrome.storage.sync.set({ enabled: false });
+    }
+  }
 
+  toggleOn.addEventListener('click', () => setActive('on'));
+  toggleOff.addEventListener('click', () => setActive('off'));
+
+  const redirectBtn = document.getElementById('set-redirect');
   if (redirectBtn) {
     redirectBtn.addEventListener('click', () => {
       chrome.windows.getCurrent((win) => {
         chrome.storage.local.set({ redirectWindowId: win.id }, () => {
-          alert("Redirect destination set.");
+          alert("The current window has been set as the redirect destination.");
         });
       });
     });
