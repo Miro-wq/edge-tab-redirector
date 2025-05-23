@@ -1,3 +1,5 @@
+![Published on Edge](published_on_edge_badge.svg)
+
 ## 🔁 Edge/Chrome Link Redirector
 
 A lightweight extension for Chromium-based browsers (Chrome, Edge) that redirects link navigations from any window to a user-defined target window.  
